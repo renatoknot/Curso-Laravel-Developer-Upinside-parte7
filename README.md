@@ -1,6 +1,6 @@
 Curso-Laravel-Developer-Upinside-parte4 Repositório onde deixarei o material que estou aprendendo do curso Laravel Developer da Upinside
 
-Sétimo projeto do curso: Query Builder
+Sétimo projeto do curso: Serviços essenciais (Log, sessão, mailer, gestão de arquivos e diretórios)
 
 Link repo1: https://github.com/renatoknot/Curso-Laravel-Developer-Upinside-parte1
 
