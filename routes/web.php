@@ -53,9 +53,9 @@ Route::get('/session', function() {
     //     echo "Esse indice não existe";
     // }
     
-    session()->flash('message', 'O artigo foi publicado com sucesso');
+    // session()->flash('message', 'O artigo foi publicado com sucesso');
     
-    session()->reflash();
+    // session()->reflash();
     
     dump(session()->all());
 });
