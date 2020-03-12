@@ -30,13 +30,13 @@ Route::get('/session', function() {
         'course' => 'LaraDev'
     ]);
     session()->put('name', 'Gustavo Web');
-    
+
     // echo session()->get('name');
 
     // session()->put('time', []);
 
     // session()->push('time', 'Gustavo Web');
-    
+
     // $student = session()->pull('name');
 
     // echo $student;
@@ -53,15 +53,35 @@ Route::get('/session', function() {
     // } else {
     //     echo "Esse indice não existe";
     // }
-    
+
     // session()->flash('message', 'O artigo foi publicado com sucesso');
-    
+
     // session()->reflash();
-    
+
     dump(session()->all());
 });
 
 Route::get('/email', function() {
-    Mail::to('renatoslip@hotmail.com')->send(new \App\Mail\welcomeLaraDev());
-    // return new \App\Mail\welcomeLaraDev();
+
+    $user = new stdClass();
+    $user->name = 'Gustavo Web';
+    $user->email = 'renatoslip@hotmail.com';
+
+    $order = new stdClass();
+    $order->type = 'billet';
+    $order->due_at = '2019-01-10';
+    $order->value = 697;
+
+    Mail::send(new \App\Mail\welcomeLaraDev($user));
+    // return new \App\Mail\welcomeLaraDev($user, $order);
+});
+
+Route::get('envio-email', function() {
+    $user = new stdClass();
+    $user->name = 'Gustavo Web';
+    $user->email = 'renatoslip@hotmail.com';
+
+
+    // return new \App\Mail\welcomeLaraDev($user);
+    Mail::send(new \App\Mail\welcomeLaraDev($user));
 });
