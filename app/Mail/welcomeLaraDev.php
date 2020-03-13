@@ -13,15 +13,17 @@ class welcomeLaraDev extends Mailable
     use Queueable, SerializesModels;
 
     private $user;
-    
+    private $order;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(\stdClass $user)
+    public function __construct(\stdClass $user, \stdClass $order)
     {
         $this->user = $user;
+        $this->order = $order;
     }
 
     /**
@@ -30,12 +32,13 @@ class welcomeLaraDev extends Mailable
      * @return $this
      */
     public function build()
-    {   
+    {
         $this->subject('Seja muito bem vindo ao Laravel Developer');
         $this->to($this->user->email, $this->user->name);
 
         return $this->view('mail.welcomeLaraDev', [
-            'user' => $this->user
+            'user' => $this->user,
+            'order' => $this->order
         ]);
     }
 }

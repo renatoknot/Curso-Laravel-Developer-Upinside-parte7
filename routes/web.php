@@ -72,8 +72,8 @@ Route::get('/email', function() {
     $order->due_at = '2019-01-10';
     $order->value = 697;
 
-    Mail::send(new \App\Mail\welcomeLaraDev($user));
-    // return new \App\Mail\welcomeLaraDev($user, $order);
+    Mail::send(new \App\Mail\welcomeLaraDev($user, $order));
+    return new \App\Mail\welcomeLaraDev($user, $order);
 });
 
 Route::get('envio-email', function() {
@@ -83,5 +83,5 @@ Route::get('envio-email', function() {
 
 
     // return new \App\Mail\welcomeLaraDev($user);
-    Mail::send(new \App\Mail\welcomeLaraDev($user));
+    // Mail::send(new \App\Mail\welcomeLaraDev($user, $order));
 });
