@@ -73,7 +73,24 @@ Route::get('/email', function() {
     $order->value = 697;
 
     Mail::send(new \App\Mail\welcomeLaraDev($user, $order));
-    return new \App\Mail\welcomeLaraDev($user, $order);
+    //return new \App\Mail\welcomeLaraDev($user, $order);
+});
+
+Route::get('/email-queue', function() {
+
+    $user = new stdClass();
+    $user->name = 'Gustavo Web';
+    $user->email = 'renatoslip@hotmail.com';
+
+    $order = new stdClass();
+    $order->type = 'billet';
+    $order->due_at = '2019-01-10';
+    $order->value = 697;
+
+    //Mail::queue(new \App\Mail\welcomeLaraDev($user, $order));
+    //return new \App\Mail\welcomeLaraDev($user, $order);
+
+    \App\Jobs\welcomeLaraDev::dispatch($user, $order)->delay(now()->addSeconds(15));
 });
 
 Route::get('envio-email', function() {
