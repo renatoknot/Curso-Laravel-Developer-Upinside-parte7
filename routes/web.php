@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,4 +102,42 @@ Route::get('envio-email', function() {
 
     // return new \App\Mail\welcomeLaraDev($user);
     // Mail::send(new \App\Mail\welcomeLaraDev($user, $order));
+});
+
+Route::get('/files', function() {
+    $files = Storage::files('');
+    $allFiles = Storage::allFiles('');
+
+    //Storage::makeDirectory('public/students');
+
+    $directories = Storage::directories('');
+    $allDirectories = Storage::allDirectories('');
+
+    // Storage::makeDirectory('public/course');
+
+    //Storage::deleteDirectory('public/course');
+
+    // Storage::disk('public')->put('upinside.txt', 'O melhor curso de Laravel do mercado é aqui.');
+    //Storage::put('upinside-treinamentos.txt', 'O melhor curso de Laravel do mercado é aqui.');
+
+    //echo Storage::get('upinside-treinamentos.txt');
+
+    //return Storage::download('upinside-treinamentos.txt');
+
+    // if(Storage::exists('upinside-treinamentos.txt')) {
+    //     echo "O arquivo existe!";
+    // } else {
+    //     echo "O arquivo não existe";
+    // }
+
+    // echo Storage::size('upinside-treinamentos.txt');
+    // echo Storage::lastModified('upinside-treinamentos.txt');
+
+    // Storage::prepend('upinside-treinamentos.txt', 'Upinside Treinamentos');//insere conteudo no começo do arquivo
+    //Storage::append('upinside-treinamentos.txt', 'Vem estudar com a gente!');//insere conteudo no final do arquivo
+
+    //Storage::copy('upinside-treinamentos.txt', 'public/upinside-treinamentos.txt');//cria uma cópia do arquivo
+    //Storage::move('upinside-treinamentos.txt', 'public/upinside-treinamentos.txt');//cria uma cópia do arquivo
+    Storage::delete('public/upinside-treinamentos.txt');
+    //dump($files, $allFiles, $directories, $allDirectories);
 });
