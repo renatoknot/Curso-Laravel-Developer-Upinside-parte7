@@ -1,5 +1,6 @@
 <?php
 
+use \App\Http\Middleware\checkParam;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -144,3 +145,6 @@ Route::get('/files', function() {
 });
 
 Route::resource('/imoveis', 'PropertyController');
+
+// Route::get('teste-middleware', 'PropertyController@middle')->middleware(checkParam::class);//pela classe
+Route::get('teste-middleware', 'PropertyController@middle')->middleware('testeMiddleware:admin, paid');//pelo apelido
