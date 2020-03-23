@@ -138,6 +138,9 @@ Route::get('/files', function() {
 
     //Storage::copy('upinside-treinamentos.txt', 'public/upinside-treinamentos.txt');//cria uma cópia do arquivo
     //Storage::move('upinside-treinamentos.txt', 'public/upinside-treinamentos.txt');//cria uma cópia do arquivo
-    Storage::delete('public/upinside-treinamentos.txt');
+    // Storage::delete('public/upinside-treinamentos.txt'); Deleta o arquivo
+
     //dump($files, $allFiles, $directories, $allDirectories);
 });
+
+Route::resource('/imoveis', 'PropertyController');
