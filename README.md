@@ -1,4 +1,4 @@
-Curso-Laravel-Developer-Upinside-parte4 Repositório onde deixarei o material que estou aprendendo do curso Laravel Developer da Upinside
+Repositório onde deixarei o material que estou aprendendo do curso Laravel Developer da Upinside
 
 Sétimo projeto do curso: Serviços essenciais (Log, sessão, mailer, gestão de arquivos e diretórios)
 
